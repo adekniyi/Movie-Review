@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../build/Book.Service.Api.props" />
+</Project>

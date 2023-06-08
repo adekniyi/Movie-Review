@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/Adeniyi/Documents/GitHub/MyBookReview/Book.Service.Api/Book.Service.Api.csproj": {}
+    "/Users/Adeniyi/Documents/GitHub/Movie-Review/Book.Service.Api/Book.Service.Api.csproj": {}
   },
   "projects": {
-    "/Users/Adeniyi/Documents/GitHub/MyBookReview/Book.Service.Api/Book.Service.Api.csproj": {
+    "/Users/Adeniyi/Documents/GitHub/Movie-Review/Book.Service.Api/Book.Service.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/Adeniyi/Documents/GitHub/MyBookReview/Book.Service.Api/Book.Service.Api.csproj",
+        "projectUniqueName": "/Users/Adeniyi/Documents/GitHub/Movie-Review/Book.Service.Api/Book.Service.Api.csproj",
         "projectName": "Book.Service.Api",
-        "projectPath": "/Users/Adeniyi/Documents/GitHub/MyBookReview/Book.Service.Api/Book.Service.Api.csproj",
+        "projectPath": "/Users/Adeniyi/Documents/GitHub/Movie-Review/Book.Service.Api/Book.Service.Api.csproj",
         "packagesPath": "/Users/Adeniyi/.nuget/packages/",
-        "outputPath": "/Users/Adeniyi/Documents/GitHub/MyBookReview/Book.Service.Api/obj/",
+        "outputPath": "/Users/Adeniyi/Documents/GitHub/Movie-Review/Book.Service.Api/obj/",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "/usr/local/share/dotnet/x64/sdk/NuGetFallbackFolder"
@@ -63,7 +63,7 @@
             },
             "Movie.Service.Nuget": {
               "target": "Package",
-              "version": "[1.0.0, )"
+              "version": "[1.0.1, )"
             },
             "RabbitMQ.Client": {
               "target": "Package",

@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Movie.Service.Nuget.Extension;
+using Movie.Service.Nuget.Interface;
+using Movie.Service.Nuget.Repository;
 using MovieReview.Api.Data;
 using MovieReview.Api.Interface;
 using MovieReview.Api.Model;
@@ -17,18 +19,26 @@ builder.Services.AddSwaggerGen();
 
 //builder.Services.AddDbContext<ApiDbContext>(opt => opt.UseSqlServer(builder.Configuration.GetConnectionString("Database")));
 
+
+
+
 builder.Services.AddDatabase<ApiDbContext>(builder.Configuration.GetConnectionString("Database"))
                 .AddGenericRepository<ApiDbContext, MovieReview.Api.Model.Movie>()
                 .AddGenericRepository<ApiDbContext, UserMovieReview>();
 
 
 builder.Services.AddScoped<IMovieReviewRepository, MovieReviewRepository>();
-builder.Services.AddSingleton<IEventProcessor, EventProcessor>();
-builder.Services.AddSingleton<Testing>();
-builder.Services.AddSingleton(typeof(TestConsumer<>));
+//builder.Services.AddSingleton<Testing>();
+//builder.Services.AddScoped(typeof(MessageBusConsumer<>));
+//builder.Services.AddSingleton<MessageBusConsumer<EventProcessor>>();
 //builder.Services.AddSingleton<TestConsumer<T>>() where T : IEventProcessor; 
 
+builder.Services.AddMessageBusConsumer<IEventProcessor>();
 builder.Services.AddHostedService<MessageBusSubscriber>();
+builder.Services.AddSingleton<IEventProcessor, EventProcessor>();
+
+                
+
 
 var app = builder.Build();
 

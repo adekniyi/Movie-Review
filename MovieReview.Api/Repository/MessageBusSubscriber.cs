@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Text;
 using System.Threading.Channels;
+using Movie.Service.Nuget.Interface;
+using Movie.Service.Nuget.Repository;
 using MovieReview.Api.Interface;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
@@ -79,7 +81,7 @@ namespace MovieReview.Api.Repository
 
             using (var scope = _services.CreateScope())
             {
-                var repo = scope.ServiceProvider.GetRequiredService<TestConsumer<EventProcessor>>();
+                var repo = scope.ServiceProvider.GetRequiredService<MessageBusConsumer<IEventProcessor>>();
 
                 //repo._exchange = "trigger_movie";
                 //repo._queue = "trigger_review_queue";

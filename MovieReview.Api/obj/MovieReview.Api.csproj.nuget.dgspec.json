@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/Adeniyi/Documents/GitHub/MyBookReview/MovieReview.Api/MovieReview.Api.csproj": {}
+    "/Users/Adeniyi/Documents/GitHub/Movie-Review/MovieReview.Api/MovieReview.Api.csproj": {}
   },
   "projects": {
-    "/Users/Adeniyi/Documents/GitHub/MyBookReview/MovieReview.Api/MovieReview.Api.csproj": {
+    "/Users/Adeniyi/Documents/GitHub/Movie-Review/MovieReview.Api/MovieReview.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/Adeniyi/Documents/GitHub/MyBookReview/MovieReview.Api/MovieReview.Api.csproj",
+        "projectUniqueName": "/Users/Adeniyi/Documents/GitHub/Movie-Review/MovieReview.Api/MovieReview.Api.csproj",
         "projectName": "MovieReview.Api",
-        "projectPath": "/Users/Adeniyi/Documents/GitHub/MyBookReview/MovieReview.Api/MovieReview.Api.csproj",
+        "projectPath": "/Users/Adeniyi/Documents/GitHub/Movie-Review/MovieReview.Api/MovieReview.Api.csproj",
         "packagesPath": "/Users/Adeniyi/.nuget/packages/",
-        "outputPath": "/Users/Adeniyi/Documents/GitHub/MyBookReview/MovieReview.Api/obj/",
+        "outputPath": "/Users/Adeniyi/Documents/GitHub/Movie-Review/MovieReview.Api/obj/",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "/usr/local/share/dotnet/x64/sdk/NuGetFallbackFolder"
@@ -63,7 +63,7 @@
             },
             "Movie.Service.Nuget": {
               "target": "Package",
-              "version": "[1.0.0, )"
+              "version": "[1.0.4, )"
             },
             "RabbitMQ.Client": {
               "target": "Package",
@@ -71,7 +71,7 @@
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
-              "version": "[6.4.0, )"
+              "version": "[6.5.0, )"
             }
           },
           "imports": [

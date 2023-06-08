@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Text.Json;
+using Movie.Service.Nuget.Interface;
 using MovieReview.Api.DTOs;
 using MovieReview.Api.Interface;
 

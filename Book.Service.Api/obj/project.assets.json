@@ -733,7 +733,7 @@
           "lib/netstandard2.0/Mono.TextTemplating.dll": {}
         }
       },
-      "Movie.Service.Nuget/1.0.0": {
+      "Movie.Service.Nuget/1.0.1": {
         "type": "package",
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "7.0.5",
@@ -741,7 +741,8 @@
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.5",
           "Microsoft.Extensions.Configuration": "7.0.0",
           "Microsoft.Extensions.Configuration.Binder": "7.0.4",
-          "Microsoft.Extensions.DependencyInjection": "7.0.0"
+          "Microsoft.Extensions.DependencyInjection": "7.0.0",
+          "RabbitMQ.Client": "6.5.0"
         },
         "compile": {
           "lib/net7.0/Movie.Service.Nuget.dll": {
@@ -2582,15 +2583,15 @@
         "mono.texttemplating.nuspec"
       ]
     },
-    "Movie.Service.Nuget/1.0.0": {
-      "sha512": "gkA15/oo4NigF7Piza0zbhcA6nwbdV7aJkMfTD41kdf7eETPmy0uegbzCwcSdnZaCtgwokLKVg28c3wWaZMmow==",
+    "Movie.Service.Nuget/1.0.1": {
+      "sha512": "4kOZiT29o7umE/z46WTW5hwc3LXsXWrLrU422ffnqdRQfV5ubkGHtnDXokvUo071ZbsV8GVrkNunkpvFUqFGsw==",
       "type": "package",
-      "path": "movie.service.nuget/1.0.0",
+      "path": "movie.service.nuget/1.0.1",
       "files": [
         ".nupkg.metadata",
         "lib/net7.0/Movie.Service.Nuget.dll",
         "lib/net7.0/Movie.Service.Nuget.runtimeconfig.json",
-        "movie.service.nuget.1.0.0.nupkg.sha512",
+        "movie.service.nuget.1.0.1.nupkg.sha512",
         "movie.service.nuget.nuspec"
       ]
     },
@@ -4074,7 +4075,7 @@
       "Microsoft.EntityFrameworkCore >= 7.0.5",
       "Microsoft.EntityFrameworkCore.Design >= 7.0.5",
       "Microsoft.EntityFrameworkCore.SqlServer >= 7.0.5",
-      "Movie.Service.Nuget >= 1.0.0",
+      "Movie.Service.Nuget >= 1.0.1",
       "RabbitMQ.Client >= 6.5.0",
       "Swashbuckle.AspNetCore >= 6.4.0"
     ]
@@ -4086,11 +4087,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/Adeniyi/Documents/GitHub/MyBookReview/Book.Service.Api/Book.Service.Api.csproj",
+      "projectUniqueName": "/Users/Adeniyi/Documents/GitHub/Movie-Review/Book.Service.Api/Book.Service.Api.csproj",
       "projectName": "Book.Service.Api",
-      "projectPath": "/Users/Adeniyi/Documents/GitHub/MyBookReview/Book.Service.Api/Book.Service.Api.csproj",
+      "projectPath": "/Users/Adeniyi/Documents/GitHub/Movie-Review/Book.Service.Api/Book.Service.Api.csproj",
       "packagesPath": "/Users/Adeniyi/.nuget/packages/",
-      "outputPath": "/Users/Adeniyi/Documents/GitHub/MyBookReview/Book.Service.Api/obj/",
+      "outputPath": "/Users/Adeniyi/Documents/GitHub/Movie-Review/Book.Service.Api/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/x64/sdk/NuGetFallbackFolder"
@@ -4142,7 +4143,7 @@
           },
           "Movie.Service.Nuget": {
             "target": "Package",
-            "version": "[1.0.0, )"
+            "version": "[1.0.1, )"
           },
           "RabbitMQ.Client": {
             "target": "Package",

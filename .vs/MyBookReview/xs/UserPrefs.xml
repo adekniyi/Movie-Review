@@ -1,0 +1,5 @@
+﻿<Properties StartupConfiguration="{34268C62-32C1-46C8-87AF-00FFB7C0D825}|https">
+  <MonoDevelop.Ide.ItemProperties.MovieReview.Api PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
+  <MonoDevelop.Ide.ItemProperties.Book.Service.Api PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
+  <MultiItemStartupConfigurations />
+</Properties>

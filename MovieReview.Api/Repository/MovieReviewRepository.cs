@@ -61,7 +61,17 @@ namespace MovieReview.Api.Repository
         {
             try
             {
-                 _context.Movies.Add(model);
+                //var movie = _context.Movies.Where(x => x.MovieForeignId == model.MovieForeignId).FirstOrDefault();
+
+                //if(movie == null)
+                //{
+                    _context.Movies.Add(model);
+                //}
+                //else
+                //{
+                //    return true;
+                //}
+
                 return _context.SaveChanges() > 0;
             }
             catch (Exception ex)
@@ -79,6 +89,48 @@ namespace MovieReview.Api.Repository
             catch (Exception ex)
             {
                 return new List<Model.Movie>();
+            }
+        }
+
+        public async Task<bool> UpdateMovie(Model.Movie model)
+        {
+            try
+            {
+                var movie = await _context.Movies.Where(x => x.MovieForeignId == model.MovieForeignId).FirstOrDefaultAsync();
+
+                movie.Name = model.Name;
+
+                await _context.SaveChangesAsync();
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
+        public async Task<bool> DeleteMovie(int id)
+        {
+            try
+            {
+                var movie = await _context.Movies.Where(x => x.MovieForeignId == id).FirstOrDefaultAsync();
+
+                if(movie != null)
+                {
+                    _context.Movies.Remove(movie);
+                }
+                else
+                {
+                    return true;
+                }
+
+
+                return await _context.SaveChangesAsync() > 0;
+            }
+            catch (Exception ex)
+            {
+                return false;
             }
         }
     }

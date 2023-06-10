@@ -17,12 +17,12 @@ namespace MovieReview.Api.Repository
 
         public void ProcessEvent(string message)
         {
-            AddMovie(message);
+            HandleMovie(message);
         }
 
         //I can have another method that checks for event type
 
-        private void AddMovie(string message)
+        private void HandleMovie(string message)
         {
             using(var scope = _services.CreateScope())
             {
@@ -30,17 +30,36 @@ namespace MovieReview.Api.Repository
 
                 var publishedMessage = JsonSerializer.Deserialize<PublishDTO>(message);
 
-                var model = new MovieReview.Api.Model.Movie
+                if(publishedMessage.ActionType == ActionType.Create)
                 {
-                    CreatedAt = DateTime.Now,
-                    MovieForeignId = publishedMessage.Id,
-                    Name = publishedMessage.Name
-                };
+                    var model = new MovieReview.Api.Model.Movie
+                    {
+                        CreatedAt = DateTime.Now,
+                        MovieForeignId = publishedMessage.Id,
+                        Name = publishedMessage.Name
+                    };
 
 
-                repo.AddMovie(model);
+                    repo.AddMovie(model);
+                    Console.WriteLine($"movie added successfully {model}");
+                }else if(publishedMessage.ActionType == ActionType.Update)
+                {
+                    var model = new MovieReview.Api.Model.Movie
+                    {
+                        MovieForeignId = publishedMessage.Id,
+                        Name = publishedMessage.Name
+                    };
 
-                Console.WriteLine($"movie added successfully {model}");
+                    repo.UpdateMovie(model);
+                    Console.WriteLine($"movie updated successfully {model}");
+                }else if(publishedMessage.ActionType == ActionType.Delete)
+                {
+                    repo.DeleteMovie(publishedMessage.Id);
+
+                    Console.WriteLine($"movie with id: {publishedMessage.Id} deleted successfully");
+                }
+
+                
             }
         }
     }

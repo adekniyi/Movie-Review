@@ -58,6 +58,61 @@ namespace Book.Service.Api.Repository
             }
         }
 
+        public async Task<bool> UpdateMovie(MovieRequestDto model)
+        {
+            try
+            {
+                var movie = await _context.Movies.Where(x => x.Id == model.MovieId).FirstOrDefaultAsync();
+
+                if(model != null)
+                {
+                    movie.Name = model.Name;
+                    movie.Category = model.Category;
+                    movie.Description = model.Description;
+
+                    await _context.SaveChangesAsync();
+
+                    _messageBusClient.Publish(new PublishDTO
+                    {
+                        Event = "Publish_Movie",
+                        Id = movie.Id,
+                        Name = movie.Name,
+                        ActionType = ActionType.Update
+                    }, "trigger_movie_update");
+
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
+        public async Task<bool> DeleteMovie(int id)
+        {
+            var movie = await _context.Movies.FirstOrDefaultAsync(x => x.Id == id);
+
+            if(movie != null)
+            {
+                _context.Movies.Remove(movie);
+            }
+
+            await  _context.SaveChangesAsync();
+
+            _messageBusClient.Publish(new PublishDTO
+            {
+                Event = "Publish_Movie",
+                Id = movie.Id,
+                ActionType = ActionType.Delete
+            }, "trigger_movie_delete");
+
+            return true;
+        }
         public async Task<bool> CreateMovieWithDirector(MovieWithDirectorRequestDto model)
         {
             try

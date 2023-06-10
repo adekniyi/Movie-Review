@@ -65,7 +65,7 @@ namespace Book.Service.Api.Controllers
             return Ok(result);
         }
 
-        [HttpPost("get-movies")]
+        [HttpGet("get-movies")]
         public async Task<IActionResult> GetMovies()
         {
             var result = await _movieRepo.GetMovies();
@@ -73,7 +73,7 @@ namespace Book.Service.Api.Controllers
             return Ok(result);
         }
 
-        [HttpPost("get-movie/{id}")]
+        [HttpGet("get-movie/{id}")]
         public async Task<IActionResult> GetMovie(int id)
         {
             var result = await _movieRepo.GetMovie(id);
@@ -81,10 +81,28 @@ namespace Book.Service.Api.Controllers
             return Ok(result);
         }
 
-        [HttpPost("get-director/{id}")]
+        [HttpGet("get-director/{id}")]
         public async Task<IActionResult> GetDirector(int id)
         {
             var result = await _directorRepo.GetDirector(id);
+
+            return Ok(result);
+        }
+
+
+        [HttpPost("update-movie")]
+        public async Task<IActionResult> UpdateMovie(MovieRequestDto model)
+        {
+            var result = await _movieRepo.UpdateMovie(model);
+
+            return result ? Ok("created successfully") : BadRequest("Unabale to create");
+        }
+
+
+        [HttpPost("delete-movie")]
+        public async Task<IActionResult> DeleteMovies(int id)
+        {
+            var result = await _movieRepo.DeleteMovie(id);
 
             return Ok(result);
         }

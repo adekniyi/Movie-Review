@@ -9,6 +9,8 @@ namespace MovieReview.Api.Interface
         MovieReviewResponseDto GetMovieReview(int movieId, decimal review);
         bool AddMovie(MovieReview.Api.Model.Movie model);
         List<MovieReview.Api.Model.Movie> GetMovies();
+        Task<bool> UpdateMovie(MovieReview.Api.Model.Movie model);
+        Task<bool> DeleteMovie(int id);
     }
 }
 

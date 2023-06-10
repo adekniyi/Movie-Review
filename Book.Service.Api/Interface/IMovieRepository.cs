@@ -12,6 +12,8 @@ namespace Book.Service.Api.Interface
 
 		Task<List<MovieWithDirectorResponseDto>> GetMovies();
 		Task<MovieWithDirectorResponseDto> GetMovie(int movieId);
+		Task<bool> UpdateMovie(MovieRequestDto model);
+		Task<bool> DeleteMovie(int id);
     }
 }
 

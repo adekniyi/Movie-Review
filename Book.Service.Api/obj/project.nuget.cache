@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "pS7hJJiVHfSwKHK3rxhkxaLZQIpPhwfvqSffGMvgHwQpyyN73mxb9e181N1K1CQPc4Orx8+uyl0bbbMiUeA6Wg==",
+  "dgSpecHash": "YmD5jM8ZwpO9/4eNn1MtcYYhWctMEJpfmHVrNYKEK2F938CqkNVnFoXIo1tt18Y0nhWKj8tl/YvxxxxTxFRjUw==",
   "success": true,
   "projectFilePath": "/Users/Adeniyi/Documents/GitHub/Movie-Review/Book.Service.Api/Book.Service.Api.csproj",
   "expectedPackageFiles": [
@@ -46,7 +46,7 @@
     "/Users/Adeniyi/.nuget/packages/microsoft.win32.registry/5.0.0/microsoft.win32.registry.5.0.0.nupkg.sha512",
     "/Users/Adeniyi/.nuget/packages/microsoft.win32.systemevents/5.0.0/microsoft.win32.systemevents.5.0.0.nupkg.sha512",
     "/Users/Adeniyi/.nuget/packages/mono.texttemplating/2.2.1/mono.texttemplating.2.2.1.nupkg.sha512",
-    "/Users/Adeniyi/.nuget/packages/movie.service.nuget/1.0.1/movie.service.nuget.1.0.1.nupkg.sha512",
+    "/Users/Adeniyi/.nuget/packages/movie.service.nuget/1.0.4/movie.service.nuget.1.0.4.nupkg.sha512",
     "/Users/Adeniyi/.nuget/packages/rabbitmq.client/6.5.0/rabbitmq.client.6.5.0.nupkg.sha512",
     "/Users/Adeniyi/.nuget/packages/swashbuckle.aspnetcore/6.4.0/swashbuckle.aspnetcore.6.4.0.nupkg.sha512",
     "/Users/Adeniyi/.nuget/packages/swashbuckle.aspnetcore.swagger/6.4.0/swashbuckle.aspnetcore.swagger.6.4.0.nupkg.sha512",

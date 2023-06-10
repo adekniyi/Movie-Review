@@ -33,9 +33,9 @@ builder.Services.AddScoped<IMovieReviewRepository, MovieReviewRepository>();
 //builder.Services.AddSingleton<MessageBusConsumer<EventProcessor>>();
 //builder.Services.AddSingleton<TestConsumer<T>>() where T : IEventProcessor; 
 
-builder.Services.AddMessageBusConsumer<IEventProcessor>();
+builder.Services.AddMessageBusConsumer<EventProcessor>();
+builder.Services.AddScoped<IEventProcessor, EventProcessor>();
 builder.Services.AddHostedService<MessageBusSubscriber>();
-builder.Services.AddSingleton<IEventProcessor, EventProcessor>();
 
                 
 

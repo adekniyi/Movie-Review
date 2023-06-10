@@ -733,7 +733,7 @@
           "lib/netstandard2.0/Mono.TextTemplating.dll": {}
         }
       },
-      "Movie.Service.Nuget/1.0.1": {
+      "Movie.Service.Nuget/1.0.4": {
         "type": "package",
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "7.0.5",
@@ -2583,15 +2583,15 @@
         "mono.texttemplating.nuspec"
       ]
     },
-    "Movie.Service.Nuget/1.0.1": {
-      "sha512": "4kOZiT29o7umE/z46WTW5hwc3LXsXWrLrU422ffnqdRQfV5ubkGHtnDXokvUo071ZbsV8GVrkNunkpvFUqFGsw==",
+    "Movie.Service.Nuget/1.0.4": {
+      "sha512": "N6PE8bPYAyDbTNiXTIuonvs1Ju4LqW3qnBwae8b7K00HWBIg+10zqMQ2b9j7SrOPpsYNhSGw9KH3e9QZa85Jgw==",
       "type": "package",
-      "path": "movie.service.nuget/1.0.1",
+      "path": "movie.service.nuget/1.0.4",
       "files": [
         ".nupkg.metadata",
         "lib/net7.0/Movie.Service.Nuget.dll",
         "lib/net7.0/Movie.Service.Nuget.runtimeconfig.json",
-        "movie.service.nuget.1.0.1.nupkg.sha512",
+        "movie.service.nuget.1.0.4.nupkg.sha512",
         "movie.service.nuget.nuspec"
       ]
     },
@@ -4075,7 +4075,7 @@
       "Microsoft.EntityFrameworkCore >= 7.0.5",
       "Microsoft.EntityFrameworkCore.Design >= 7.0.5",
       "Microsoft.EntityFrameworkCore.SqlServer >= 7.0.5",
-      "Movie.Service.Nuget >= 1.0.1",
+      "Movie.Service.Nuget >= 1.0.4",
       "RabbitMQ.Client >= 6.5.0",
       "Swashbuckle.AspNetCore >= 6.4.0"
     ]
@@ -4143,7 +4143,7 @@
           },
           "Movie.Service.Nuget": {
             "target": "Package",
-            "version": "[1.0.1, )"
+            "version": "[1.0.4, )"
           },
           "RabbitMQ.Client": {
             "target": "Package",

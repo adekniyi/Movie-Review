@@ -33,11 +33,17 @@ builder.Services.AddScoped<IMovieReviewRepository, MovieReviewRepository>();
 //builder.Services.AddSingleton<MessageBusConsumer<EventProcessor>>();
 //builder.Services.AddSingleton<TestConsumer<T>>() where T : IEventProcessor; 
 
-builder.Services.AddMessageBusConsumer<EventProcessor>();
-builder.Services.AddScoped<IEventProcessor, EventProcessor>();
+builder.Services.AddMessageBusConsumer<IEventProcessor>();
+builder.Services.AddMessageBusConsumer<IUpdateInterface>();
+builder.Services.AddMessageBusConsumer<IDeleteInterface>();
+builder.Services.AddMessageBusConsumer<IAddDirectorInterface>();
 builder.Services.AddHostedService<MessageBusSubscriber>();
+builder.Services.AddSingleton<IEventProcessor, EventProcessor>();
+builder.Services.AddSingleton<IUpdateInterface, UpdateRepository>();
+builder.Services.AddSingleton<IDeleteInterface, DeleteRepository>();
+builder.Services.AddSingleton<IAddDirectorInterface, AddDirectorRepository>();
 
-                
+
 
 
 var app = builder.Build();

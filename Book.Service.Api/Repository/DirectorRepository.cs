@@ -13,12 +13,15 @@ namespace Book.Service.Api.Repository
     {
         private readonly IGenericRepository<Director> _repo;
         private readonly IMessageBusClient _messageBusClient;
+        private readonly IMessageBusClient _directorMessageBusClient;
 
-        public DirectorRepository(IGenericRepository<Director> repo, IMessageBusClient messageBusClient)
+        public DirectorRepository(IGenericRepository<Director> repo, IMessageBusClient messageBusClient, IMessageBusClient directorMessageBusClient)
         {
             _repo = repo;
             _messageBusClient = messageBusClient;
+            _directorMessageBusClient = directorMessageBusClient;
             _messageBusClient.Initialize("trigger_movie");
+            _directorMessageBusClient.Initialize("trigger_director");
         }
 
         public async Task<bool> CreateDirector(DirectorRequestDto model)
@@ -33,7 +36,19 @@ namespace Book.Service.Api.Repository
                 };
 
 
-                return await _repo.CreateAsync(director);
+                var result =  await _repo.CreateAsync(director);
+
+
+                _directorMessageBusClient.Publish(new PublishDTO
+                {
+                    Event = "Publish_Director",
+                    Id = director.Id,
+                    Name = director.Name,
+                    ActionType = ActionType.Create
+                }, "trigger_director_create");
+
+
+                return result;
             }
             catch (Exception ex)
             {

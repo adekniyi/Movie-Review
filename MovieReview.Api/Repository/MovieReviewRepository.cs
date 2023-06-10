@@ -61,16 +61,39 @@ namespace MovieReview.Api.Repository
         {
             try
             {
-                //var movie = _context.Movies.Where(x => x.MovieForeignId == model.MovieForeignId).FirstOrDefault();
+                var movie = _context.Movies.Where(x => x.MovieForeignId == model.MovieForeignId).FirstOrDefault();
 
-                //if(movie == null)
-                //{
+                if (movie == null)
+                {
                     _context.Movies.Add(model);
-                //}
-                //else
-                //{
-                //    return true;
-                //}
+                }
+                else
+                {
+                    return true;
+                }
+
+                return _context.SaveChanges() > 0;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
+        public bool AddDirector(Director model)
+        {
+            try
+            {
+                var director = _context.Directors.Where(x => x.DirectorForeignId == model.DirectorForeignId).FirstOrDefault();
+
+                if (director == null)
+                {
+                    _context.Directors.Add(model);
+                }
+                else
+                {
+                    return true;
+                }
 
                 return _context.SaveChanges() > 0;
             }
@@ -92,15 +115,27 @@ namespace MovieReview.Api.Repository
             }
         }
 
-        public async Task<bool> UpdateMovie(Model.Movie model)
+        public List<Director> GetDirectors()
         {
             try
             {
-                var movie = await _context.Movies.Where(x => x.MovieForeignId == model.MovieForeignId).FirstOrDefaultAsync();
+                return _context.Directors.ToList();
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+
+        public bool UpdateMovie(Model.Movie model)
+        {
+            try
+            {
+                var movie = _context.Movies.Where(x => x.MovieForeignId == model.MovieForeignId).FirstOrDefault();
 
                 movie.Name = model.Name;
 
-                await _context.SaveChangesAsync();
+                 _context.SaveChanges();
 
                 return true;
             }
@@ -110,11 +145,11 @@ namespace MovieReview.Api.Repository
             }
         }
 
-        public async Task<bool> DeleteMovie(int id)
+        public bool DeleteMovie(int id)
         {
             try
             {
-                var movie = await _context.Movies.Where(x => x.MovieForeignId == id).FirstOrDefaultAsync();
+                var movie =  _context.Movies.Where(x => x.MovieForeignId == id).FirstOrDefault();
 
                 if(movie != null)
                 {
@@ -126,7 +161,7 @@ namespace MovieReview.Api.Repository
                 }
 
 
-                return await _context.SaveChangesAsync() > 0;
+                return  _context.SaveChanges() > 0;
             }
             catch (Exception ex)
             {

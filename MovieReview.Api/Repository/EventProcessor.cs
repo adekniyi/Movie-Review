@@ -42,24 +42,7 @@ namespace MovieReview.Api.Repository
 
                     repo.AddMovie(model);
                     Console.WriteLine($"movie added successfully {model}");
-                }else if(publishedMessage.ActionType == ActionType.Update)
-                {
-                    var model = new MovieReview.Api.Model.Movie
-                    {
-                        MovieForeignId = publishedMessage.Id,
-                        Name = publishedMessage.Name
-                    };
-
-                    repo.UpdateMovie(model);
-                    Console.WriteLine($"movie updated successfully {model}");
-                }else if(publishedMessage.ActionType == ActionType.Delete)
-                {
-                    repo.DeleteMovie(publishedMessage.Id);
-
-                    Console.WriteLine($"movie with id: {publishedMessage.Id} deleted successfully");
                 }
-
-                
             }
         }
     }

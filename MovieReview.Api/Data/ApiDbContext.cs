@@ -13,7 +13,7 @@ namespace MovieReview.Api.Data
 
 		public DbSet<UserMovieReview> UserMovieReviews { get; set; }
 		public DbSet<MovieReview.Api.Model.Movie> Movies { get; set; }
-
+        public DbSet<Director> Directors { get; set; }
 
         //protected override void OnModelCreating(ModelBuilder modelBuilder)
         //{

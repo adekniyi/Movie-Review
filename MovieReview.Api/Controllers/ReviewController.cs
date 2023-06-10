@@ -44,6 +44,15 @@ namespace MovieReview.Api.Controllers
 
             return Ok(result);
         }
+
+        [HttpGet("get-directors")]
+        public IActionResult GetDirectors()
+        {
+            var result = _movieReviewRepo.GetDirectors();
+
+            return Ok(result);
+        }
+
     }
 }
 

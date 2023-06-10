@@ -12,12 +12,12 @@ namespace MovieReview.Api.Repository
 	public class MessageBusSubscriber: BackgroundService 
 	{
         private readonly IServiceScopeFactory _services;
-        private readonly MessageBusConsumer<IEventProcessor> _consumer;
+        //private readonly MessageBusConsumer<IEventProcessor> _consumer;
 
-        public MessageBusSubscriber(IServiceScopeFactory services, MessageBusConsumer<IEventProcessor> consumer)
+        public MessageBusSubscriber(IServiceScopeFactory services) //, MessageBusConsumer<IEventProcessor> consumer
         {
             _services = services;
-            _consumer = consumer;
+            //_consumer = consumer;
         }
 
         protected override Task ExecuteAsync(CancellationToken stoppingToken)
@@ -35,6 +35,7 @@ namespace MovieReview.Api.Repository
            // Call this method for the "delete" endpoint
            InitializeAndConsumeMovieDeleted();
 
+            InitializeAndConsumeDirectorCreate();
             //using (var scope = _services.CreateScope())
             //{
             //    var repo = scope.ServiceProvider.GetRequiredService<MessageBusConsumer<IEventProcessor>>();
@@ -54,46 +55,56 @@ namespace MovieReview.Api.Repository
             //    //repo.Consume();
             //    repo.Dispose();
             //}
-            
+
             return Task.CompletedTask;
         }
 
 
         private void InitializeAndConsumeMovieCreated()
         {
-            _consumer.InitializeRMQ("trigger_movie", "trigger_review_queue", "trigger_movie_create");
-            _consumer.Consume();
-            //using (var scope = _services.CreateScope())
-            //{
-            //    var repo = scope.ServiceProvider.GetRequiredService<MessageBusConsumer<IEventProcessor>>();
-            //    _consumer.InitializeRMQ("trigger_movie", "trigger_review_queue", "trigger_movie_create");
-            //    _consumer.Consume();
-            //}
+            //_consumer.InitializeRMQ("trigger_movie", "trigger_review_queue", "trigger_movie_create");
+            //_consumer.Consume();
+            using (var scope = _services.CreateScope())
+            {
+                var repo = scope.ServiceProvider.GetRequiredService<MessageBusConsumer<IEventProcessor>>();
+                repo.InitializeRMQ("trigger_movie", "trigger_review_queue", "trigger_movie_create");
+                repo.Consume();
+            }
         }
 
         private void InitializeAndConsumeMovieUpdated()
         {
-            _consumer.InitializeRMQ("trigger_movie", "trigger_update_queue", "trigger_movie_update");
-            _consumer.Consume();
-            //using (var scope = _services.CreateScope())
-            //{
-            //    var repo = scope.ServiceProvider.GetRequiredService<MessageBusConsumer<IEventProcessor>>();
-            //    _consumer.InitializeRMQ("trigger_movie", "trigger_update_queue", "trigger_movie_update");
-            //    _consumer.Consume();
-            //}
+            //_consumer.InitializeRMQ("trigger_movie", "trigger_update_queue", "trigger_movie_update");
+            //_consumer.Consume();
+            using (var scope = _services.CreateScope())
+            {
+                var repo = scope.ServiceProvider.GetRequiredService<MessageBusConsumer<IUpdateInterface>>();
+                repo.InitializeRMQ("trigger_movie", "trigger_update_queue", "trigger_movie_update");
+                repo.Consume();
+            }
         }
 
         private void InitializeAndConsumeMovieDeleted()
         {
-            _consumer.InitializeRMQ("trigger_movie", "trigger_delete_queue", "trigger_movie_delete");
-            _consumer.Consume();
+            //_consumer.InitializeRMQ("trigger_movie", "trigger_delete_queue", "trigger_movie_delete");
+            //_consumer.Consume();
 
-            //using (var scope = _services.CreateScope())
-            //{
-            //    var repo = scope.ServiceProvider.GetRequiredService<MessageBusConsumer<IEventProcessor>>();
-            //    _consumer.InitializeRMQ("trigger_movie", "trigger_delete_queue", "trigger_movie_delete");
-            //    _consumer.Consume();
-            //}
+            using (var scope = _services.CreateScope())
+            {
+                var repo = scope.ServiceProvider.GetRequiredService<MessageBusConsumer<IDeleteInterface>>();
+                repo.InitializeRMQ("trigger_movie", "trigger_delete_queue", "trigger_movie_delete");
+                repo.Consume();
+            }
+        }
+
+        private void InitializeAndConsumeDirectorCreate()
+        {
+            using (var scope = _services.CreateScope())
+            {
+                var repo = scope.ServiceProvider.GetRequiredService<MessageBusConsumer<IAddDirectorInterface>>();
+                repo.InitializeRMQ("trigger_director", "trigger_director_queue_create", "trigger_director_create");
+                repo.Consume();
+            }
         }
 
 

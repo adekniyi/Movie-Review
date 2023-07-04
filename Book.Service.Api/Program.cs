@@ -4,6 +4,7 @@ using Book.Service.Api.Model;
 using Book.Service.Api.Repository;
 using Microsoft.EntityFrameworkCore;
 using Movie.Service.Nuget.Extension;
+using Movie.Service.Nuget.Interface;
 //using Movie.Service.Nuget.Interface;
 //using Movie.Service.Nuget.Repository;
 
@@ -17,12 +18,17 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddDatabase<ApiDbContext>(builder.Configuration.GetConnectionString("Database"))
-                .AddGenericRepository<ApiDbContext, Book.Service.Api.Model.Movie>()
                 .AddGenericRepository<ApiDbContext, Director>()
+                .AddGenericRepository<ApiDbContext, Book.Service.Api.Model.Movie>()
+                .AddGenericRepository<ApiDbContext, MovieReview>()
                 .AddMessageBusClient();
 
 builder.Services.AddScoped<IMovieRepository, MovieRepository>();
 builder.Services.AddScoped<IDirectorRepository, DirectorRepository>();
+
+builder.Services.AddMessageBusConsumer<ICreateReviewRepository>();
+builder.Services.AddHostedService<MessageBusSubscriber>();
+builder.Services.AddSingleton<ICreateReviewRepository, CreateReviewRepository>();
 
 //builder.Services.AddSingleton<IMessageBusClient, MessageBusClient>();
 //});

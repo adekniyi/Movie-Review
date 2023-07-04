@@ -12,16 +12,16 @@ namespace Book.Service.Api.Repository
 	public class DirectorRepository : IDirectorRepository
     {
         private readonly IGenericRepository<Director> _repo;
-        private readonly IMessageBusClient _messageBusClient;
+        // private readonly IMessageBusClient _messageBusClient; , IMessageBusClient messageBusClient,
         private readonly IMessageBusClient _directorMessageBusClient;
 
-        public DirectorRepository(IGenericRepository<Director> repo, IMessageBusClient messageBusClient, IMessageBusClient directorMessageBusClient)
+        public DirectorRepository(IGenericRepository<Director> repo, IMessageBusClient directorMessageBusClient)
         {
             _repo = repo;
-            _messageBusClient = messageBusClient;
+            //_messageBusClient = messageBusClient;
             _directorMessageBusClient = directorMessageBusClient;
-            _messageBusClient.Initialize("trigger_movie");
-            _directorMessageBusClient.Initialize("trigger_director");
+            //_messageBusClient.Initialize("trigger_movie");
+           
         }
 
         public async Task<bool> CreateDirector(DirectorRequestDto model)
@@ -38,6 +38,7 @@ namespace Book.Service.Api.Repository
 
                 var result =  await _repo.CreateAsync(director);
 
+                _directorMessageBusClient.Initialize("trigger_director");
 
                 _directorMessageBusClient.Publish(new PublishDTO
                 {
@@ -77,16 +78,16 @@ namespace Book.Service.Api.Repository
                 var result = await _repo.CreateAsync(director);
 
 
-                foreach (var movie in director.Movies)
-                {
-                    _messageBusClient.Publish(new PublishDTO
-                    {
-                        Event = "Publish_Movie",
-                        Id = movie.Id,
-                        Name = movie.Name,
-                        ActionType = ActionType.Create
-                    }, "trigger_movie_create");
-                }
+                //foreach (var movie in director.Movies)
+                //{
+                //    _messageBusClient.Publish(new PublishDTO
+                //    {
+                //        Event = "Publish_Movie",
+                //        Id = movie.Id,
+                //        Name = movie.Name,
+                //        ActionType = ActionType.Create
+                //    }, "trigger_movie_create");
+                //}
 
                 return result;
             }

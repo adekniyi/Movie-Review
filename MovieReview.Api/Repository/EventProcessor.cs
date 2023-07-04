@@ -6,8 +6,8 @@ using MovieReview.Api.Interface;
 
 namespace MovieReview.Api.Repository
 {
-	public class EventProcessor : IEventProcessor
-	{
+	public class EventProcessor : ICreatInterface
+    {
         private readonly IServiceScopeFactory _services;
 
         public EventProcessor(IServiceScopeFactory services)

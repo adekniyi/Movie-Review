@@ -66,7 +66,7 @@ namespace MovieReview.Api.Repository
             //_consumer.Consume();
             using (var scope = _services.CreateScope())
             {
-                var repo = scope.ServiceProvider.GetRequiredService<MessageBusConsumer<IEventProcessor>>();
+                var repo = scope.ServiceProvider.GetRequiredService<MessageBusConsumer<ICreatInterface>>();
                 repo.InitializeRMQ("trigger_movie", "trigger_review_queue", "trigger_movie_create");
                 repo.Consume();
             }

@@ -14,11 +14,13 @@ namespace MovieReview.Api.Repository
     {
         private readonly ApiDbContext _context;
         private readonly IGenericRepository<UserMovieReview> _genericRepository;
+        private readonly IMessageBusClient _messageBusClient;
 
-        public MovieReviewRepository(ApiDbContext context, IGenericRepository<UserMovieReview> genericRepository)
+        public MovieReviewRepository(ApiDbContext context, IGenericRepository<UserMovieReview> genericRepository, IMessageBusClient messageBusClient)
         {
-            _context = context; 
+            _context = context;
             _genericRepository = genericRepository;
+            _messageBusClient = messageBusClient;
         }
         public async Task<bool> AddMovieReview(ReviewMovieRequestDto model)
         {
@@ -35,7 +37,21 @@ namespace MovieReview.Api.Repository
                         MovieId = model.MovieId
                     };
 
-                    return await _genericRepository.CreateAsync(review);
+                    var result = await _genericRepository.CreateAsync(review);
+
+                    _messageBusClient.Initialize("trigger_review");
+
+                    _messageBusClient.Publish(new PublishReviewDTO
+                    {
+                        Id = review.Id,
+                        MovieId = review.MovieId,
+                        ActionType = ActionType.Create,
+                        Rating = review.Review,
+                        UserId = review.UserId
+                    }, "trigger_review_movie_create");
+
+
+                    return result;
                 }
                 else
                 {

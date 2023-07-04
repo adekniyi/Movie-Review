@@ -1,5 +1,6 @@
 ﻿<Properties StartupConfiguration="{590D9184-DB34-4FB4-9C8C-DE59880A1719}|https">
+  <MonoDevelop.Ide.ItemProperties.ApiGateway FirstBuild="True" />
+  <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.ItemProperties.MovieReview.Api PreferredExecutionTarget="/Applications/Google Chrome 2.app" />
   <MonoDevelop.Ide.ItemProperties.Book.Service.Api PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
-  <MultiItemStartupConfigurations />
 </Properties>

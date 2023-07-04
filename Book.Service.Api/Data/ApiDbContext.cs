@@ -14,7 +14,7 @@ namespace Book.Service.Api.Data
 
 		public DbSet<Book.Service.Api.Model.Movie> Movies { get; set; }
         public DbSet<Director> Directors { get; set; }
-
+        public DbSet<MovieReview> MovieReviews { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

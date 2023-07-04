@@ -9,7 +9,16 @@ namespace Book.Service.Api.DTOs
 		public ActionType ActionType { get; set; }
 	}
 
-	public enum ActionType
+    public class PublishReviewDTO
+    {
+        public int Id { get; set; }
+        public int MovieId { get; set; }
+		public decimal Rating { get; set; }
+        public int UserId { get; set; }
+        public ActionType ActionType { get; set; }
+    }
+
+    public enum ActionType
 	{
 		Create,
 		Update,

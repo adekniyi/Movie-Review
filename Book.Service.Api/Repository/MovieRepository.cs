@@ -7,6 +7,7 @@ using Book.Service.Api.Model;
 using Microsoft.EntityFrameworkCore;
 using Movie.Service.Nuget.Extension;
 using Movie.Service.Nuget.Interface;
+using Movie.Service.Nuget.Repository;
 
 namespace Book.Service.Api.Repository
 {
@@ -14,15 +15,17 @@ namespace Book.Service.Api.Repository
     {
         private readonly ApiDbContext _context;
         private readonly IGenericRepository<Book.Service.Api.Model.Movie> movieRepository;
+        private readonly IGenericRepository<MovieReview> _movieReviewRepository;
         private readonly IMessageBusClient _messageBusClient;
 
 
-        public MovieRepository(ApiDbContext context, IGenericRepository<Book.Service.Api.Model.Movie> movieRepository, IMessageBusClient messageBusClient)
+        public MovieRepository(ApiDbContext context, IGenericRepository<Book.Service.Api.Model.Movie> movieRepository, IMessageBusClient messageBusClient, IGenericRepository<MovieReview> movieReviewRepository)
         {
             _context = context;
             this.movieRepository = movieRepository;
             _messageBusClient = messageBusClient;
-            _messageBusClient.Initialize("trigger_movie");
+        
+            _movieReviewRepository = movieReviewRepository;
         }
 
 
@@ -41,6 +44,8 @@ namespace Book.Service.Api.Repository
                 };
 
                 var result = await movieRepository.CreateAsync(movie);
+
+                _messageBusClient.Initialize("trigger_movie");
 
                 _messageBusClient.Publish(new PublishDTO
                 {
@@ -187,6 +192,45 @@ namespace Book.Service.Api.Repository
 
             return res;
         }
+
+
+
+        public async Task<bool> AddMovieReview(MovieReview model)
+        {
+            try
+            {
+                var hasReviewed = _movieReviewRepository.IQueryableOfT().ApplySinglePredicate(x => x.ReviewForeignId == model.ReviewForeignId);
+
+                if (hasReviewed == null)
+                {
+                    var review = new MovieReview
+                    {
+                        Rating = model.Rating,
+                        UserId = model.UserId,
+                        MovieId = model.MovieId,
+                        CreatedAt = DateTime.Now,
+                        ReviewForeignId = model.ReviewForeignId
+                    };
+
+                    var result = await _movieReviewRepository.CreateAsync(review);
+
+
+                    return result;
+                }
+                else
+                {
+                    return true;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
+
+
     }
 }
 

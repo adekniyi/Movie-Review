@@ -1,5 +1,6 @@
 ﻿using System;
 using Book.Service.Api.DTOs;
+using Book.Service.Api.Model;
 
 namespace Book.Service.Api.Interface
 {
@@ -14,6 +15,7 @@ namespace Book.Service.Api.Interface
 		Task<MovieWithDirectorResponseDto> GetMovie(int movieId);
 		Task<bool> UpdateMovie(MovieRequestDto model);
 		Task<bool> DeleteMovie(int id);
+		Task<bool> AddMovieReview(MovieReview model);
     }
 }
 

@@ -24,7 +24,8 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddDatabase<ApiDbContext>(builder.Configuration.GetConnectionString("Database"))
                 .AddGenericRepository<ApiDbContext, MovieReview.Api.Model.Movie>()
-                .AddGenericRepository<ApiDbContext, UserMovieReview>();
+                .AddGenericRepository<ApiDbContext, UserMovieReview>()
+                .AddMessageBusClient();
 
 
 builder.Services.AddScoped<IMovieReviewRepository, MovieReviewRepository>();
@@ -33,12 +34,12 @@ builder.Services.AddScoped<IMovieReviewRepository, MovieReviewRepository>();
 //builder.Services.AddSingleton<MessageBusConsumer<EventProcessor>>();
 //builder.Services.AddSingleton<TestConsumer<T>>() where T : IEventProcessor; 
 
-builder.Services.AddMessageBusConsumer<IEventProcessor>();
+builder.Services.AddMessageBusConsumer<ICreatInterface>();
 builder.Services.AddMessageBusConsumer<IUpdateInterface>();
 builder.Services.AddMessageBusConsumer<IDeleteInterface>();
 builder.Services.AddMessageBusConsumer<IAddDirectorInterface>();
 builder.Services.AddHostedService<MessageBusSubscriber>();
-builder.Services.AddSingleton<IEventProcessor, EventProcessor>();
+builder.Services.AddSingleton<ICreatInterface, EventProcessor>();
 builder.Services.AddSingleton<IUpdateInterface, UpdateRepository>();
 builder.Services.AddSingleton<IDeleteInterface, DeleteRepository>();
 builder.Services.AddSingleton<IAddDirectorInterface, AddDirectorRepository>();

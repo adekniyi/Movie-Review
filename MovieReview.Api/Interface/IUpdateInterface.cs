@@ -14,5 +14,9 @@ namespace MovieReview.Api.Interface
     public interface IAddDirectorInterface : IEventProcessor
     {
     }
+
+    public interface ICreatInterface : IEventProcessor
+    {
+    }
 }
 

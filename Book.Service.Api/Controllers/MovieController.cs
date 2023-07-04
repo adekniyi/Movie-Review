@@ -16,32 +16,17 @@ namespace Book.Service.Api.Controllers
     public class MovieController : Controller
     {
         private readonly IMovieRepository _movieRepo;
-        private readonly IDirectorRepository _directorRepo;
+      
 
-        public MovieController(IMovieRepository movieRepo, IDirectorRepository directorRepo)
+        public MovieController(IMovieRepository movieRepo)
         {
             _movieRepo = movieRepo;
-            _directorRepo = directorRepo;
+            //_directorRepo = directorRepo;
         }
 
-        [HttpPost("create-director")]
-        public async Task<IActionResult> CreateDirector(DirectorRequestDto model)
-        {
-            var result = await _directorRepo.CreateDirector(model);
+     
 
-            return result ? Ok("created successfully") : BadRequest("Unabale to create");
-        }
-
-        [HttpPost("create-director-movie")]
-        public async Task<IActionResult> CreateDirectorWithMovies(DirectorWithMoviesRequestDto model)
-        {
-            var result = await _directorRepo.CreateDirectorWithMovies(model);
-
-
-            return result ? Ok("created successfully") : BadRequest("Unabale to create");
-        }
-
-        [HttpPost("create-movie")]
+        [HttpPost]
         public async Task<IActionResult> CreateMovie(MovieRequestDto model)
         {
             var result = await _movieRepo.CreateMovie(model);
@@ -57,15 +42,8 @@ namespace Book.Service.Api.Controllers
             return result ? Ok("created successfully") : BadRequest("Unabale to create");
         }
 
-        [HttpPost("get-directors")]
-        public async Task<IActionResult> GetDirectors()
-        {
-            var result = await _directorRepo.GetDirectors();
-
-            return Ok(result);
-        }
-
-        [HttpGet("get-movies")]
+      
+        [HttpGet]
         public async Task<IActionResult> GetMovies()
         {
             var result = await _movieRepo.GetMovies();
@@ -73,22 +51,13 @@ namespace Book.Service.Api.Controllers
             return Ok(result);
         }
 
-        [HttpGet("get-movie/{id}")]
+        [HttpGet("{id}")]
         public async Task<IActionResult> GetMovie(int id)
         {
             var result = await _movieRepo.GetMovie(id);
 
             return Ok(result);
         }
-
-        [HttpGet("get-director/{id}")]
-        public async Task<IActionResult> GetDirector(int id)
-        {
-            var result = await _directorRepo.GetDirector(id);
-
-            return Ok(result);
-        }
-
 
         [HttpPost("update-movie")]
         public async Task<IActionResult> UpdateMovie(MovieRequestDto model)
@@ -99,7 +68,7 @@ namespace Book.Service.Api.Controllers
         }
 
 
-        [HttpPost("delete-movie")]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteMovies(int id)
         {
             var result = await _movieRepo.DeleteMovie(id);

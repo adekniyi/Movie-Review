@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Book.Service.Api", "Book.Se
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieReview.Api", "MovieReview.Api\MovieReview.Api.csproj", "{34268C62-32C1-46C8-87AF-00FFB7C0D825}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiGateway", "ApiGateway\ApiGateway.csproj", "{B8074646-4317-47C6-98A1-AD7884627F93}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiGateway", "ApiGateway\ApiGateway.csproj", "{32F05306-D8C5-4A46-9930-53B3488D9A80}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{34268C62-32C1-46C8-87AF-00FFB7C0D825}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{34268C62-32C1-46C8-87AF-00FFB7C0D825}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{34268C62-32C1-46C8-87AF-00FFB7C0D825}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B8074646-4317-47C6-98A1-AD7884627F93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B8074646-4317-47C6-98A1-AD7884627F93}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B8074646-4317-47C6-98A1-AD7884627F93}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B8074646-4317-47C6-98A1-AD7884627F93}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32F05306-D8C5-4A46-9930-53B3488D9A80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32F05306-D8C5-4A46-9930-53B3488D9A80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32F05306-D8C5-4A46-9930-53B3488D9A80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32F05306-D8C5-4A46-9930-53B3488D9A80}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

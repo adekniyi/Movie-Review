@@ -88,6 +88,69 @@
       ],
       "UpstreamPathTemplate": "/api/Movie/update-movie",
       "UpstreamHttpMethod": [ "Post" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Movie",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5298
+        }
+      ],
+      "UpstreamPathTemplate": "/api/Movie",
+      "UpstreamHttpMethod": [ "Get", "Post" ]
+    },
+
+
+    //review
+    {
+      "DownstreamPathTemplate": "/api/Review/add-review",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 6055
+        }
+      ],
+      "UpstreamPathTemplate": "/api/Review/add-review",
+      "UpstreamHttpMethod": [ "Post" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Review/get-movie-review",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 6055
+        }
+      ],
+      "UpstreamPathTemplate": "/api/Review/get-movie-review",
+      "UpstreamHttpMethod": [ "Post" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Review/get-movie",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 6055
+        }
+      ],
+      "UpstreamPathTemplate": "/api/Review/get-movie",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Review/get-directors",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 6055
+        }
+      ],
+      "UpstreamPathTemplate": "/api/Review/get-directors",
+      "UpstreamHttpMethod": [ "Get" ]
     }
   ],
   "GlobalConfiguration": {

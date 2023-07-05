@@ -63,7 +63,7 @@
             },
             "Movie.Service.Nuget": {
               "target": "Package",
-              "version": "[1.0.4, )"
+              "version": "[1.0.6, )"
             },
             "RabbitMQ.Client": {
               "target": "Package",

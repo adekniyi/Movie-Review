@@ -21,7 +21,8 @@ builder.Services.AddDatabase<ApiDbContext>(builder.Configuration.GetConnectionSt
                 .AddGenericRepository<ApiDbContext, Director>()
                 .AddGenericRepository<ApiDbContext, Book.Service.Api.Model.Movie>()
                 .AddGenericRepository<ApiDbContext, MovieReview>()
-                .AddMessageBusClient();
+                .AddMessageBusClient()
+                .AddCustomJWTAuthentication();
 
 builder.Services.AddScoped<IMovieRepository, MovieRepository>();
 builder.Services.AddScoped<IDirectorRepository, DirectorRepository>();

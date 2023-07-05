@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Book.Service.Api.DTOs;
 using Book.Service.Api.Interface;
 using Book.Service.Api.Model;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -44,6 +45,7 @@ namespace Book.Service.Api.Controllers
 
       
         [HttpGet]
+        [Authorize]
         public async Task<IActionResult> GetMovies()
         {
             var result = await _movieRepo.GetMovies();

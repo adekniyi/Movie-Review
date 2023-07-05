@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MovieReview.Api.DTOs;
 using MovieReview.Api.Interface;
@@ -38,6 +39,7 @@ namespace MovieReview.Api.Controllers
         }
 
         [HttpGet("get-movie")]
+        [Authorize]
         public IActionResult GetMovies()
         {
             var result = _movieReviewRepo.GetMovies();

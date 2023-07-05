@@ -77,6 +77,13 @@
 /Users/Adeniyi/Documents/GitHub/MyBookReview/MovieReview.Api/bin/Debug/net7.0/Mono.TextTemplating.dll
 /Users/Adeniyi/Documents/GitHub/MyBookReview/MovieReview.Api/bin/Debug/net7.0/System.CodeDom.dll
 /Users/Adeniyi/Documents/GitHub/MyBookReview/MovieReview.Api/bin/Debug/net7.0/RabbitMQ.Client.dll
+/Users/Adeniyi/Documents/GitHub/Movie-Review/MovieReview.Api/obj/Debug/net7.0/MovieReview.Api.csproj.AssemblyReference.cache
+/Users/Adeniyi/Documents/GitHub/Movie-Review/MovieReview.Api/obj/Debug/net7.0/MovieReview.Api.GeneratedMSBuildEditorConfig.editorconfig
+/Users/Adeniyi/Documents/GitHub/Movie-Review/MovieReview.Api/obj/Debug/net7.0/MovieReview.Api.AssemblyInfoInputs.cache
+/Users/Adeniyi/Documents/GitHub/Movie-Review/MovieReview.Api/obj/Debug/net7.0/MovieReview.Api.AssemblyInfo.cs
+/Users/Adeniyi/Documents/GitHub/Movie-Review/MovieReview.Api/obj/Debug/net7.0/MovieReview.Api.csproj.CoreCompileInputs.cache
+/Users/Adeniyi/Documents/GitHub/Movie-Review/MovieReview.Api/obj/Debug/net7.0/MovieReview.Api.MvcApplicationPartsAssemblyInfo.cs
+/Users/Adeniyi/Documents/GitHub/Movie-Review/MovieReview.Api/obj/Debug/net7.0/MovieReview.Api.MvcApplicationPartsAssemblyInfo.cache
 /Users/Adeniyi/Documents/GitHub/Movie-Review/MovieReview.Api/bin/Debug/net7.0/appsettings.Development.json
 /Users/Adeniyi/Documents/GitHub/Movie-Review/MovieReview.Api/bin/Debug/net7.0/appsettings.json
 /Users/Adeniyi/Documents/GitHub/Movie-Review/MovieReview.Api/bin/Debug/net7.0/MovieReview.Api
@@ -87,6 +94,7 @@
 /Users/Adeniyi/Documents/GitHub/Movie-Review/MovieReview.Api/bin/Debug/net7.0/Azure.Core.dll
 /Users/Adeniyi/Documents/GitHub/Movie-Review/MovieReview.Api/bin/Debug/net7.0/Azure.Identity.dll
 /Users/Adeniyi/Documents/GitHub/Movie-Review/MovieReview.Api/bin/Debug/net7.0/Humanizer.dll
+/Users/Adeniyi/Documents/GitHub/Movie-Review/MovieReview.Api/bin/Debug/net7.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
 /Users/Adeniyi/Documents/GitHub/Movie-Review/MovieReview.Api/bin/Debug/net7.0/Microsoft.AspNetCore.OpenApi.dll
 /Users/Adeniyi/Documents/GitHub/Movie-Review/MovieReview.Api/bin/Debug/net7.0/Microsoft.Bcl.AsyncInterfaces.dll
 /Users/Adeniyi/Documents/GitHub/Movie-Review/MovieReview.Api/bin/Debug/net7.0/Microsoft.Data.SqlClient.dll
@@ -135,13 +143,6 @@
 /Users/Adeniyi/Documents/GitHub/Movie-Review/MovieReview.Api/bin/Debug/net7.0/runtimes/win/lib/netstandard2.0/System.Runtime.Caching.dll
 /Users/Adeniyi/Documents/GitHub/Movie-Review/MovieReview.Api/bin/Debug/net7.0/runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll
 /Users/Adeniyi/Documents/GitHub/Movie-Review/MovieReview.Api/bin/Debug/net7.0/runtimes/win/lib/netcoreapp3.0/System.Windows.Extensions.dll
-/Users/Adeniyi/Documents/GitHub/Movie-Review/MovieReview.Api/obj/Debug/net7.0/MovieReview.Api.csproj.AssemblyReference.cache
-/Users/Adeniyi/Documents/GitHub/Movie-Review/MovieReview.Api/obj/Debug/net7.0/MovieReview.Api.GeneratedMSBuildEditorConfig.editorconfig
-/Users/Adeniyi/Documents/GitHub/Movie-Review/MovieReview.Api/obj/Debug/net7.0/MovieReview.Api.AssemblyInfoInputs.cache
-/Users/Adeniyi/Documents/GitHub/Movie-Review/MovieReview.Api/obj/Debug/net7.0/MovieReview.Api.AssemblyInfo.cs
-/Users/Adeniyi/Documents/GitHub/Movie-Review/MovieReview.Api/obj/Debug/net7.0/MovieReview.Api.csproj.CoreCompileInputs.cache
-/Users/Adeniyi/Documents/GitHub/Movie-Review/MovieReview.Api/obj/Debug/net7.0/MovieReview.Api.MvcApplicationPartsAssemblyInfo.cs
-/Users/Adeniyi/Documents/GitHub/Movie-Review/MovieReview.Api/obj/Debug/net7.0/MovieReview.Api.MvcApplicationPartsAssemblyInfo.cache
 /Users/Adeniyi/Documents/GitHub/Movie-Review/MovieReview.Api/obj/Debug/net7.0/staticwebassets/msbuild.MovieReview.Api.Microsoft.AspNetCore.StaticWebAssets.props
 /Users/Adeniyi/Documents/GitHub/Movie-Review/MovieReview.Api/obj/Debug/net7.0/staticwebassets/msbuild.build.MovieReview.Api.props
 /Users/Adeniyi/Documents/GitHub/Movie-Review/MovieReview.Api/obj/Debug/net7.0/staticwebassets/msbuild.buildMultiTargeting.MovieReview.Api.props

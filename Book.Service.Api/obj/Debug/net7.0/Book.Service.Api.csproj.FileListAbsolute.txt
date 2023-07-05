@@ -87,6 +87,7 @@
 /Users/Adeniyi/Documents/GitHub/Movie-Review/Book.Service.Api/bin/Debug/net7.0/Azure.Core.dll
 /Users/Adeniyi/Documents/GitHub/Movie-Review/Book.Service.Api/bin/Debug/net7.0/Azure.Identity.dll
 /Users/Adeniyi/Documents/GitHub/Movie-Review/Book.Service.Api/bin/Debug/net7.0/Humanizer.dll
+/Users/Adeniyi/Documents/GitHub/Movie-Review/Book.Service.Api/bin/Debug/net7.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
 /Users/Adeniyi/Documents/GitHub/Movie-Review/Book.Service.Api/bin/Debug/net7.0/Microsoft.AspNetCore.OpenApi.dll
 /Users/Adeniyi/Documents/GitHub/Movie-Review/Book.Service.Api/bin/Debug/net7.0/Microsoft.Bcl.AsyncInterfaces.dll
 /Users/Adeniyi/Documents/GitHub/Movie-Review/Book.Service.Api/bin/Debug/net7.0/Microsoft.Data.SqlClient.dll

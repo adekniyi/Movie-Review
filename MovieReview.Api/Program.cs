@@ -25,7 +25,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDatabase<ApiDbContext>(builder.Configuration.GetConnectionString("Database"))
                 .AddGenericRepository<ApiDbContext, MovieReview.Api.Model.Movie>()
                 .AddGenericRepository<ApiDbContext, UserMovieReview>()
-                .AddMessageBusClient();
+                .AddMessageBusClient()
+                .AddCustomJWTAuthentication();
 
 
 builder.Services.AddScoped<IMovieReviewRepository, MovieReviewRepository>();

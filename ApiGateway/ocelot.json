@@ -2,6 +2,20 @@
   "Routes": [
     {
       //My controller endpoint
+      "DownstreamPathTemplate": "/api/Auth/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5098
+        }
+      ],
+      //incoming request route
+      "UpstreamPathTemplate": "/api/Auth/{everything}",
+      "UpstreamHttpMethod": [ "Get", "Post" ]
+    },
+    {
+      //My controller endpoint
       "DownstreamPathTemplate": "/api/Review/{everything}",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [

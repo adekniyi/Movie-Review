@@ -1,9 +1,22 @@
 ﻿{
   "Routes": [
     {
-      //Director
       //My controller endpoint
-      "DownstreamPathTemplate": "/api/Director",
+      "DownstreamPathTemplate": "/api/Review/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 6055
+        }
+      ],
+      //incoming request route
+      "UpstreamPathTemplate": "/api/Review/{everything}",
+      "UpstreamHttpMethod": [ "Get", "Post" ]
+    },
+    {
+      //My controller endpoint
+      "DownstreamPathTemplate": "/api/{everything}",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
@@ -12,82 +25,8 @@
         }
       ],
       //incoming request route
-      "UpstreamPathTemplate": "/api/Director",
-      "UpstreamHttpMethod": [ "Get", "Post" ]
-    },
-    {
-      "DownstreamPathTemplate": "/api/Director/{id}",
-      "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "localhost",
-          "Port": 5298
-        }
-      ],
-      "UpstreamPathTemplate": "/api/Director/{id}",
-      "UpstreamHttpMethod": [ "Get" ]
-    },
-    {
-      "DownstreamPathTemplate": "/api/Director/create-director-movie",
-      "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "localhost",
-          "Port": 5298
-        }
-      ],
-      "UpstreamPathTemplate": "/api/Director/create-director-movie",
-      "UpstreamHttpMethod": [ "Post" ]
-    },
-    //Movie part
-
-    {
-      "DownstreamPathTemplate": "/api/Movie",
-      "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "localhost",
-          "Port": 5298
-        }
-      ],
-      "UpstreamPathTemplate": "/api/Movie",
-      "UpstreamHttpMethod": [ "Get", "Post" ]
-    },
-    {
-      "DownstreamPathTemplate": "/api/Movie/{id}",
-      "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "localhost",
-          "Port": 5298
-        }
-      ],
-      "UpstreamPathTemplate": "/api/Movie/{id}",
-      "UpstreamHttpMethod": [ "Get", "Delete" ]
-    },
-    {
-      "DownstreamPathTemplate": "/api/Movie/create-movie-director",
-      "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "localhost",
-          "Port": 5298
-        }
-      ],
-      "UpstreamPathTemplate": "/api/Movie/create-movie-director",
-      "UpstreamHttpMethod": [ "Post" ]
-    },
-    {
-      "DownstreamPathTemplate": "/api/Movie/update-movie",
-      "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "localhost",
-          "Port": 5298
-        }
-      ],
-      "UpstreamPathTemplate": "/api/Movie/update-movie",
-      "UpstreamHttpMethod": [ "Post" ]
+      "UpstreamPathTemplate": "/api/{everything}",
+      "UpstreamHttpMethod": [ "Get", "Post", "Delete" ]
     }
   ],
   "GlobalConfiguration": {
